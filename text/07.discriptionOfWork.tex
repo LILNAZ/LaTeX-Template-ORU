@@ -1,0 +1,44 @@
+% Following the sections above follows a description of what you have done. You should not use the heading above, but replace it with appropriate headings, depending on your work. The structure should be made clear through the section headings. A clear and clear logical structure and narrative flow is important. You should have advanced background knowledge that is necessary to understand how you solved the task and define hypotheses and important concepts. The description of experiments should be such that the experiments can be repeated. If such a description becomes very long and detailed, you can put it in an appendix.
+\section{Description of the Work}
+
+
+This section will explain any set up for gathering the results, this section header is only temporary and should be changed to something more appropriate for your report.
+
+Exampel, this is the code used to solve sultion X, see Listing \ref{Ccode}
+
+\begin{lstlisting}[language=c,caption=some code,label=Ccode]
+void printPreorder(const BSTree tree){
+	if (isEmpty(tree))
+		return;
+	printf("%d,", tree->data);
+	printPreorder(tree->left);
+	printPreorder(tree->right);
+}
+void printInorder(const BSTree tree){ // prints sorted
+	if (isEmpty(tree)) 
+		return;
+	printInorder(tree->left);
+	printf("%d,", tree->data);
+	printInorder(tree->right);
+}
+void printPostorder(const BSTree tree){
+	if (isEmpty(tree)) 
+		return;
+	printPostorder(tree->left);
+	printPostorder(tree->right);
+	printf("%d,", tree->data);
+}
+\end{lstlisting}
+
+inline math $f(x) = 2^x * x^3$,  $f'(x)=2^x*x^2(x*ln(2)+3)$ see Equation \ref{math}. To see more information look at Appendix \ref{appen1}\\
+
+\begin{equation}
+    \begin{aligned}
+        f(x) = 2^x * x^3 & \\[5pt]
+        f'(x) = (ln(2)*2^x)*x^3+2^x(3x^2) &= \\[5pt]
+        2^x*x^3*ln(2)+2^x*3x^2 &= \\[5pt]
+        2^x*x^2(x*ln(2)+3) &= f'(x)
+    \end{aligned}
+    \label{math}
+\end{equation}
+

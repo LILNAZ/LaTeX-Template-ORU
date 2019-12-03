@@ -1,0 +1,202 @@
+%Created by, Mikael Andersson and the whole Network engineering class of 2016 (MDH)
+%edited by Johannes Henriksson
+
+% Title
+\title{Latex Mall [ORU] v4.1}
+
+% Document type
+\documentclass[11pt, titlepage, a4paper]{article}
+
+% Preamble
+
+\input{static/preamble.sty}
+\bibliography{static/biblio}
+
+%============================== Custom macros for document
+
+%=============== Front page info
+%% Logo info
+\def\tLogoLocation{static/pics/logoKransColorENG.png}
+\def\tLogoWidth{15mm}
+
+%% School info
+\def\tSchoolName{Örebro University}
+\def\tAcademyName{DEPAETMENT}
+\def\tSchoolLocation{Örebro, Sweden}
+
+
+%% Course info
+% Leave the fields for titles, authors and teachers blank if you don't need them.
+% e.g. \tTitleThree{}
+% They will automatically be hidden on the front page.
+
+\def\tCourseName{COURSE NAME}
+\def\tTitleOne{TITLE} % the title should explain as much as possible what the report is about, but, be as short as possible
+\def\tTitleTwo{} % <-- Set to {} to hide
+\def\tTitleThree{}   % <-- Set to {} to hide
+
+
+%% Author info
+\def\tAuthorTitle{Authors:}     % <-- Set to {} to hide
+
+\def\tAuthorOneName{STUDENT 1}       % <-- Set to {} to hide
+\def\tAuthorOneEmail{}
+%======
+\def\tAuthorTwoName{STUDENT 2}       % <-- Set to {} to hide
+\def\tAuthorTwoEmail{}
+%======
+\def\tAuthorThreeName{}     % <-- Set to {} to hide
+\def\tAuthorThreeEmail{}
+%======
+\def\tAuthorFourName{}    % <-- Set to {} to hide
+\def\tAuthorFourEmail{}
+
+%% Teacher info
+\def\tTeacherOneTitleAndName{Examiner: NAME NAME}
+\def\tTeacherOneEmail{EMAIL}
+\def\tTeacherOneLocation{\tSchoolName, \tSchoolLocation}
+%======
+\def\tTeacherTwoTitleAndName{Supervisor: NAME NAME}  % <-- Set to {} to hide
+\def\tTeacherTwoEmail{EMAIL}
+\def\tTeacherTwoLocation{\tSchoolName, \tSchoolLocation}
+
+\def\tTeacherThreeTitleAndName{Supervisor: NAME NAME}  % <-- Set to {} to hide
+\def\tTeacherThreeEmail{EMAIL}
+\def\tTeacherThreeLocation{\tSchoolName, \tSchoolLocation}
+
+%% Misc
+\def\tDate{\today}      % Use \today or set a date manually
+
+%=============== Document Headers
+\def\mLHeader{\tAuthorOneName, \tAuthorTwoName}
+\def\mRHeader{Doc Header}
+%============================== End of macros
+
+% Page style
+\pagestyle{fancy}
+\marginparsep = 10pt
+\renewcommand*{\marginfont}{\footnotesize}
+
+% Table of Contents
+\renewcommand\contentsname{Table of Contents}
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Table of Contents}%
+}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\circR}{\textsuperscript{\textregistered}}
+
+
+
+%
+\input{text/abbreviations.tex}
+\makeglossaries
+
+
+% Document begins
+\begin{document}
+
+    % Title
+    \begin{titlepage}
+        \input{static/title}
+    \end{titlepage}
+
+    % Page style
+    \pagestyle{fancy}
+    \fancyhead[L]{\mLHeader}
+    \fancyhead[R]{\mRHeader}
+    \setlength{\headheight}{14pt}
+    \fancyfoot[L]{}
+    \fancyfoot[R]{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+
+    % Reset of counters after each section
+    \counterwithin{figure}{section}
+    \counterwithin{table}{section}
+    \counterwithin{lstlisting}{section}
+
+% -============================Summary=======================================
+  \pagenumbering{roman}
+  \hypersetup{linkcolor=black}
+
+  \def\mPrintSummary{sum}    % Set to {} to skip printing summary.
+  \ifx
+    \mPrintSummary \empty
+      % nothing
+    \else
+        \begin{abstract}
+               \textit{\input{text/00.abstract.tex}}      % Quick summary of the whole paper.
+        \end{abstract}
+      \newpage
+  \fi
+  
+%========================== Table of contents =========================
+  
+   \hypersetup{linkcolor=black}
+
+    % Abbreviations
+    \printglossary[type=\acronymtype,title=Abbreviations]\newpage
+
+    % Table of contents
+    \tableofcontents        % <-- Comment out if not needed
+    
+    % List of lists
+    \lstlistoflistings      % <-- Comment out if not needed
+    
+    % List of figures
+    \listoffigures          % <-- Comment out if not needed
+    
+    % List of tables
+    \listoftables           % <-- Comment out if not needed
+
+
+
+
+% =========================== Actual Content ==========================
+    \newpage
+    \hypersetup{linkcolor=blue}
+   
+    \pagenumbering{arabic}
+% ========== Add your texts here
+
+    \input{text/01.introduction.tex}
+    \newpage
+    \input{text/02.background.tex}
+    \newpage
+    \input{text/03.relatedWork.tex}
+    \newpage
+    \input{text/04.problem.tex}
+    \newpage
+    \input{text/05.method.tex}
+    \newpage
+    \input{text/06.ethics.tex}
+    \newpage
+    \input{text/07.discriptionOfWork.tex}
+    \newpage
+    \input{text/08.results.tex}
+    \newpage
+    \input{text/09.discussion.tex}
+    \newpage
+    \input{text/10.conclusion.tex}
+    \newpage
+    \input{text/11.futureWork.tex}
+
+% ==========
+   
+
+% ============================= References ============================
+%\pagenumbering{roman}
+% Comment out these lines if you don't need a list of references.
+    \clearpage
+    \printbibliography[heading=bibintoc]
+
+% ============================= Appendices ============================
+% Comment out these lines if you don't need a any appendices
+    \clearpage
+    \begin{appendices}
+       \input{appendix/appendix1.tex}
+    \end{appendices}
+
+% ============================ Document End ===========================
+\end{document}

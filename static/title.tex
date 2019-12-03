@@ -1,0 +1,109 @@
+\begin{center}
+    %\begin{figure}[h]
+        %\begin{center}
+        %     \includegraphics[width=40mm]{\tLogoLocation}
+        %\end{center}
+       
+    %\end{figure}
+
+    \Large \tSchoolName \\
+    \Large \tAcademyName \\
+    \Large \tSchoolLocation \\
+
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}} \\ [0.5cm]
+
+    \Large{\tCourseName} \\ [1.0cm]
+
+%============================================================
+% Title management
+
+    \Huge \textbf{{\tTitleOne}} \\ [0.5cm]
+    \ifx
+        \tTitleTwo \empty
+            %nothing
+        \else
+            \LARGE {\uppercase{\tTitleTwo}} \\
+    \fi
+    \ifx
+        \tTitleThree \empty
+            ~\\ [0.5cm]
+        \else
+            \huge \textbf{\uppercase{\tTitleThree}} \\ [1cm]
+    \fi
+
+%============================================================
+% Author management
+
+    \ifx
+        \tAuthorTitle \empty
+            %nothing
+        \else
+            \LARGE \textbf{\underline{\smash{\tAuthorTitle}}} \\ [0.2cm]
+    \fi
+    
+    
+    \LARGE \tAuthorOneName \\
+    %\large \href{mailto:\tAuthorOneEmail}{\tAuthorOneEmail} \\
+    
+    \ifx
+        \tAuthorTwoName \empty
+            %nothing
+        \else
+            \LARGE \tAuthorTwoName \\
+            %\large \href{mailto:\tAuthorTwoEmail}{\tAuthorTwoEmail} \\
+    \fi
+    \ifx
+        \tAuthorThreeName \empty
+            %nothing
+        \else
+            \LARGE \tAuthorThreeName \\
+            %\large \href{mailto:\tAuthorThreeEmail}{\tAuthorThreeEmail} \\
+    \fi
+    \ifx
+        \tAuthorFourName \empty
+            %nothing
+        \else
+            \LARGE \tAuthorFourName \\
+            %\large \href{mailto:\tAuthorFourEmail}{\tAuthorFourEmail} \\
+    \fi
+
+    \vspace*{\fill}
+
+%============================================================
+% Teacher management
+
+    \begin{flushleft}
+        \Large \tTeacherOneTitleAndName \\
+        \begin{minipage}[t]{0,7\textwidth}
+            %\large \href{mailto:\tTeacherOneEmail}{\tTeacherOneEmail} \\
+            \large \tTeacherOneLocation
+        \end{minipage} \\ [0.5cm]
+
+        \ifx
+            \tTeacherTwoTitleAndName \empty
+                %nothing
+            \else
+                \Large \tTeacherTwoTitleAndName \\
+                \begin{minipage}[t]{0,7\textwidth}
+                    %\large \href{mailto:\tTeacherTwoEmail}{\tTeacherTwoEmail} \\
+                    \large \tTeacherTwoLocation
+                \end{minipage} \\ [0.5cm]
+        \fi
+         
+        \ifx
+            \tTeacherThreeTitleAndName \empty
+                %nothing
+             \else
+                \Large \tTeacherThreeTitleAndName \\
+                \begin{minipage}[t]{0,7\textwidth}
+                    %\large \href{mailto:\tTeacherThreeEmail}{\tTeacherThreeEmail} \\
+                    \large \tTeacherThreeLocation
+                \end{minipage} \\ [0.5cm]
+        \fi
+    \end{flushleft}
+
+%============================================================
+
+    \large \tDate
+
+\end{center}
