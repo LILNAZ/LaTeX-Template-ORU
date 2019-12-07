@@ -88,9 +88,9 @@
 
 
 
-%
-\input{text/abbreviations.tex}
+\makeatother
 \makeglossaries
+
 
 
 % Document begins
@@ -136,7 +136,7 @@
    \hypersetup{linkcolor=black}
 
     % Abbreviations
-    \printglossary[type=\acronymtype,title=Abbreviations]\newpage
+    \input{static/acronymSetup.tex}
 
     % Table of contents
     \tableofcontents        % <-- Comment out if not needed
