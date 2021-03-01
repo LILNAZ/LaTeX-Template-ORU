@@ -9,7 +9,7 @@
 \usepackage{microtype}
 
 % Bibliography & References Formatting
-\usepackage[style=apa,backend=biber,dateabbrev=false]{biblatex}
+\usepackage[style=apa6,backend=biber,dateabbrev=false]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
 
 % Appendices Formatting
@@ -35,7 +35,7 @@
 \usepackage{listings}
 %\renewcommand{\lstlistlistingname}{Listor}   % If needed to manually change list of lists's name in ToC.
 %\renewcommand{\lstlistingname}{Lista}        % If needed to manually change list's name in document.
-\usepackage[margin=3cm]{geometry}
+\usepackage[a4paper,hmargin=1in,vmargin=3cm]{geometry}
 \usepackage[section]{placeins}
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
@@ -65,7 +65,7 @@
 
 % Urls & Hyperref
 \usepackage{url}
-\usepackage[pdfborder={0 0 0}, colorlinks=true, urlcolor=blue, citecolor=red, bookmarks=false]{hyperref}
+\usepackage[pdfborder={0 0 0}, colorlinks=true, urlcolor=blue, citecolor=red, bookmarks=trufalse]{hyperref}
 
 % Image and Table Formatting
 \usepackage{tabularx}
@@ -95,4 +95,14 @@
 
 % Abbreviations
 \usepackage{longtable}
-\usepackage[acronym]{glossaries}
+\usepackage[acronym,toc]{glossaries}
+
+% Other
+\usepackage{lipsum}
+%\setlength\parindent{0.5in}
+\usepackage{dirtytalk}
+\pgfplotsset{compat=1.17}
+
+
+
+\usepackage{rotating}
