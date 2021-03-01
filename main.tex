@@ -2,7 +2,7 @@
 %edited by Johannes Henriksson
 
 % Title
-\title{Latex Mall [ORU] v4.1}
+\title{Latex Mall [ORU] v4.2}
 
 % Document type
 \documentclass[11pt, titlepage, a4paper]{article}
@@ -20,9 +20,9 @@
 \def\tLogoWidth{15mm}
 
 %% School info
-\def\tSchoolName{Örebro University}
+\def\tSchoolName{University NAME}
 \def\tAcademyName{DEPAETMENT}
-\def\tSchoolLocation{Örebro, Sweden}
+\def\tSchoolLocation{City}
 
 
 %% Course info
@@ -72,6 +72,22 @@
 \def\mRHeader{Doc Header}
 %============================== End of macros
 
+%============== PDF metadata
+\input{text/00.keywords}
+\hypersetup{
+pdftitle={\tTitleOne},
+pdfauthor={\mLHeader},
+pdfkeywords={\tKeyWords},
+pdfsubject={\mRHeader}
+}
+%==========================
+
+
+%
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+\newcommand\subsubsubsubsection{\@startsection{subparagraph}{5}{\z@}{-2.5ex\@plus -1ex \@minus -.25ex}{1.25ex \@plus .25ex}{\normalfont\normalsize\bfseries}}
+
+
 % Page style
 \pagestyle{fancy}
 \marginparsep = 10pt
@@ -85,8 +101,6 @@
 }
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\circR}{\textsuperscript{\textregistered}}
-
-
 
 \makeatother
 \makeglossaries
@@ -117,24 +131,38 @@
     \counterwithin{lstlisting}{section}
 
 % -============================Summary=======================================
-  \pagenumbering{roman}
+    \pagenumbering{Alph}
   \hypersetup{linkcolor=black}
 
+  %TC:ignore
   \def\mPrintSummary{sum}    % Set to {} to skip printing summary.
   \ifx
     \mPrintSummary \empty
       % nothing
     \else
-        \begin{abstract}
-               \textit{\input{text/00.abstract.tex}}      % Quick summary of the whole paper.
-        \end{abstract}
+        %\pdfbookmark{\contentsname}{Abstract}
+        \vspace*{\fill}
+        \begin{center}
+            \begin{large}
+                \textbf{Abstract}
+            \end{large}
+        \end{center}
+        %\begin{abstract}
+        \textit{\input{text/00.abstract.tex}}      % Quick summary of the whole paper.
+        %\end{abstract}
+        
+        
+        \vspace*{\fill}
+        \textit{Keywords:} \tKeyWords
       \newpage
   \fi
-  
-%========================== Table of contents =========================
-  
-   \hypersetup{linkcolor=black}
+  %TC:endignore
 
+\glsresetall % resets all abbreviations after the abstract
+%========================== Table of contents =========================
+  \pagenumbering{roman}  
+   \hypersetup{linkcolor=black}
+    %TC:ignore
     % Abbreviations
     \input{static/acronymSetup.tex}
 
@@ -149,7 +177,7 @@
     
     % List of tables
     \listoftables           % <-- Comment out if not needed
-
+    %TC:endignore
 
 
 
@@ -158,6 +186,7 @@
     \hypersetup{linkcolor=blue}
    
     \pagenumbering{arabic}
+    \glsresetall % resets all abbreviations for the main text
 % ========== Add your texts here
 
     \input{text/01.introduction.tex}
@@ -183,20 +212,25 @@
     \input{text/11.futureWork.tex}
 
 % ==========
-   
+
+\glsresetall % resets all abbreviations for the reference
 
 % ============================= References ============================
 %\pagenumbering{roman}
 % Comment out these lines if you don't need a list of references.
+    %TC:ignore
     \clearpage
     \printbibliography[heading=bibintoc]
-
+    %TC:endignore
 % ============================= Appendices ============================
 % Comment out these lines if you don't need a any appendices
+
+\glsresetall % resets all abbreviations for the appendixes
+    %TC:ignore
     \clearpage
     \begin{appendices}
        \input{appendix/appendix1.tex}
     \end{appendices}
-
+     %TC:endignore
 % ============================ Document End ===========================
 \end{document}
